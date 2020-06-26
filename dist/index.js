@@ -1452,7 +1452,7 @@ function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const token = core.getInput("github-token", { required: true });
-            const { pull_request: pr } = github.event.client_payload || github.context.payload;
+            const { pull_request: pr } = github.context.payload.client_payload || github.context.payload;
             if (!pr) {
                 throw new Error("Event payload missing `pull_request`");
             }
